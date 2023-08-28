@@ -20,7 +20,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="460dp"
+                android:layout_height="400dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
@@ -157,6 +157,16 @@
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
                     </LinearLayout>
+                    <Button
+                        android:id="@+id/btn_back"
+                        android:backgroundTint="@null"
+                        android:background="@drawable/items_gradient"
+                        android:layout_width="150dp"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="75dp"
+                        android:text="Regresar">
+
+                    </Button>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -170,7 +180,6 @@
                 android:elevation="10dp"
                 android:scaleType="fitXY" />
         </RelativeLayout>
-
     </RelativeLayout>
 
 </LinearLayout>
