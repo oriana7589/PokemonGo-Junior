@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -90,8 +91,11 @@ public class MainActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     PokemonResponse pokemonRespuesta = response.body();
                     ArrayList<Pokemons> listaPokemon = pokemonRespuesta.getResults();
-
-                    listaPokemonAdapter.adicionarListaPokemon(listaPokemon);
+                    if (listaPokemon != null) {
+                        listaPokemonAdapter.adicionarListaPokemon(listaPokemon);
+                    } else {
+                        Toast.makeText(MainActivity.this, "No se pudo conectar con el servicio", Toast.LENGTH_SHORT).show();
+                    }
                 } else {
                     Log.e(TAG, " onResponse: " + response.errorBody());
                 }
