@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -20,6 +21,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import tech.alvarez.pokedex.Interface.PokemonService;
 import tech.alvarez.pokedex.Model.PokemonDescription;
+import tech.alvarez.pokedex.Model.PokemonDescriptionResponse;
 import tech.alvarez.pokedex.Model.Type;
 import tech.alvarez.pokedex.Model.TypeX;
 import tech.alvarez.pokedex.R;
@@ -51,20 +53,20 @@ public class DescrtionPokemon extends AppCompatActivity {
             @Override
             public void onResponse(Call<PokemonDescription> call, Response<PokemonDescription> response) {
                 if (response.isSuccessful()) {
+
                     PokemonDescription pokemonRespuesta = response.body();
                     Double pesoWeight = Double.valueOf(pokemonRespuesta.getWeight());
                     Double tamañoHeight = Double.valueOf(pokemonRespuesta.getHeight());
                     String imageId = String.valueOf(pokemonRespuesta.getId());
-                    List<Type> type = pokemonRespuesta.getTypes();
-                    Type typeInSlot1 = type.get(0);
-                    String type_pokemon = typeInSlot1.getType().getName();
+                    String type = String.valueOf(pokemonRespuesta.getTypes().get(0).getTypes().getName());
                     ImageView fotoImageView = findViewById(R.id.imagePokemon);
                     TextView typePokemon = findViewById(R.id.tipo_pokemon);
                     TextView peso = findViewById(R.id.peso_pokemon);
                     TextView tamaño =findViewById(R.id.tamaño_pokemon);
                     peso.setText(pesoWeight+"kg");
                     tamaño.setText(tamañoHeight+"m");
-                    typePokemon.setText(type_pokemon);
+                    typePokemon.setText(type);
+                    Log.e(TAG, " Response: " + type);
 
                     Glide.with(DescrtionPokemon.this)
                             .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + imageId + ".png")

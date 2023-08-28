@@ -20,4 +20,9 @@ public class TypeX {
     }
 
     private String url;
+
+    @Override
+    public String toString() {
+        return "PokemonType {name=" + name + ", url=" + url + "}";
+    }
 }

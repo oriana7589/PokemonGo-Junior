@@ -2,6 +2,15 @@ package tech.alvarez.pokedex.Model;
 
 public class Type {
     private int slot;
+    public TypeX type;
+
+    public TypeX getTypes() {
+        return type;
+    }
+
+    public void setTypes(TypeX types) {
+        this.type = types;
+    }
 
     public int getSlot() {
         return slot;
@@ -11,13 +20,8 @@ public class Type {
         this.slot = slot;
     }
 
-    public TypeX getType() {
-        return types;
+    @Override
+    public String toString() {
+        return "Types [slot=" + slot + ", types=" + type + "]";
     }
-
-    public void setType(TypeX type) {
-        this.types = type;
-    }
-
-    private TypeX types;
 }

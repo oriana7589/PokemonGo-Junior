@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PokemonDescriptionResponse {
-    private List<PokemonDescription> results;
+    private List<Type> types;
 
-    public List<PokemonDescription> getResults() {
-        return results;
+    public List<Type> getTypes() {
+        return types;
     }
 
-    public void setResults(List<PokemonDescription> results) {
-        this.results = results;
+    public void setTypes(List<Type> types) {
+        this.types = types;
     }
 
 }
